@@ -6,104 +6,109 @@ layout: null
     <meta charset="UTF-8">
     <title>Timiitz / TimiitzGit</title>
     <style>
+        :root {
+            --bg-color: #050505;
+            --accent: #00d4ff;
+            --deep-blue: #0a192f;
+            --bright-blue: #1e40af;
+        }
+
         * { box-sizing: border-box; }
-        html, body {
+        
+        body, html {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
             overflow: hidden;
+            background-color: var(--bg-color);
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: 'Segoe UI', Roboto, sans-serif;
-            background: #0a192f;
+            font-family: 'Segoe UI', system-ui, sans-serif;
         }
 
-        .bg-mesh {
+        .animated-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            background-color: #0a192f;
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(26, 60, 100, 0.8) 0, transparent 50%), 
-                radial-gradient(at 50% 0%, rgba(16, 44, 84, 0.8) 0, transparent 50%), 
-                radial-gradient(at 100% 0%, rgba(30, 58, 138, 0.8) 0, transparent 50%), 
-                radial-gradient(at 0% 50%, rgba(15, 23, 42, 0.8) 0, transparent 50%), 
-                radial-gradient(at 100% 50%, rgba(29, 78, 216, 0.4) 0, transparent 50%), 
-                radial-gradient(at 0% 100%, rgba(30, 58, 138, 0.8) 0, transparent 50%), 
-                radial-gradient(at 50% 100%, rgba(15, 23, 42, 0.8) 0, transparent 50%), 
-                radial-gradient(at 100% 100%, rgba(26, 60, 100, 0.8) 0, transparent 50%);
-            background-size: 200% 200%;
-            animation: meshFlow 15s ease infinite;
+            background: linear-gradient(-45deg, 
+                #050505, 
+                #0a192f, 
+                #1e3a8a, 
+                #0f172a, 
+                #020617);
+            background-size: 400% 400%;
+            animation: flow 15s ease infinite;
         }
 
-        .noise {
+        .animated-bg::after {
+            content: "";
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            opacity: 0.08;
+            inset: 0;
+            opacity: 0.05;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
             pointer-events: none;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
         }
 
-        @keyframes meshFlow {
-            0% { background-position: 0% 0%; }
-            50% { background-position: 100% 100%; }
-            100% { background-position: 0% 0%; }
+        @keyframes flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.02);
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 35px;
+            border-radius: 30px;
             padding: 60px;
             text-align: center;
-            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
-            max-width: 580px;
-            width: 85%;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+            max-width: 550px;
+            width: 90%;
             z-index: 10;
         }
 
         h1 {
-            color: #00d4ff;
-            font-size: 3.8rem;
+            color: var(--accent);
+            font-size: 3.5rem;
             margin: 0 0 10px 0;
-            text-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+            text-shadow: 0 0 25px rgba(0, 212, 255, 0.4);
         }
 
         p {
             color: #94a3b8;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             margin-bottom: 40px;
         }
 
         .link-btn {
             display: inline-block;
-            color: #00d4ff;
+            color: var(--accent);
             text-decoration: none;
             font-weight: 600;
-            padding: 16px 45px;
-            border: 2px solid #00d4ff;
+            padding: 15px 40px;
+            border: 2px solid var(--accent);
             border-radius: 50px;
-            transition: 0.3s;
+            transition: all 0.3s ease;
             background: rgba(0, 212, 255, 0.05);
         }
 
         .link-btn:hover {
-            background: #00d4ff;
-            color: #0a192f;
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.6);
+            background: var(--accent);
+            color: #050505;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
             transform: translateY(-3px);
         }
 
         .id-badge {
             margin-top: 50px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: #475569;
             letter-spacing: 3px;
             text-transform: uppercase;
@@ -112,8 +117,7 @@ layout: null
     </style>
 </head>
 <body>
-    <div class="bg-mesh"></div>
-    <div class="noise"></div>
+    <div class="animated-bg"></div>
     <div class="glass-card">
         <h1>Timiitz</h1>
         <p>Official Gateway-Domain for Technical Verification</p>
