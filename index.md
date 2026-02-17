@@ -1,81 +1,81 @@
 ---
 layout: null
 ---
-<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <title>Timiitz / TimiitzGit</title>
     <style>
-        body, html {
+        * { box-sizing: border-box; }
+        html, body {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
             overflow: hidden;
+            background-color: #020205;
             display: flex;
             justify-content: center;
             align-items: center;
             font-family: 'Segoe UI', Roboto, sans-serif;
-            background: #050505;
         }
 
-        .background-animate {
-            position: absolute;
-            width: 100%;
-            height: 100%;
+        .bg-wrapper {
+            position: fixed;
             top: 0;
             left: 0;
-            z-index: -2;
-            background: linear-gradient(-45deg, #050505, #0a0a12, #1a1a2e, #16213e, #1a1a2e, #0f3460, #0a192f, #16213e, #050505);
-            background-size: 400% 400%;
-            animation: gradient 22s ease-in-out infinite;
-        }
-
-        .grain {
-            position: absolute;
             width: 100%;
             height: 100%;
-            top: 0;
-            left: 0;
             z-index: -1;
-            opacity: 0.04;
-            pointer-events: none;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            /* Ultra-smooth gradient mit sehr nahen Farbwerten */
+            background: linear-gradient(-45deg, 
+                #020205, #04040a, #070714, #0a0a1a, 
+                #0d1120, #0a0a1a, #070714, #04040a, #020205);
+            background-size: 400% 400%;
+            animation: ultraGradient 30s ease-in-out infinite;
         }
 
-        @keyframes gradient {
+        /* Anti-Banding Dither Overlay */
+        .bg-wrapper::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.03;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        @keyframes ultraGradient {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 32px;
+            background: rgba(255, 255, 255, 0.01);
+            backdrop-filter: blur(35px);
+            -webkit-backdrop-filter: blur(35px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 40px;
             padding: 70px;
             text-align: center;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
-            max-width: 550px;
-            width: 85%;
-            z-index: 10;
+            box-shadow: 0 40px 120px rgba(0, 0, 0, 0.9);
+            max-width: 600px;
+            width: 90%;
         }
 
         h1 {
             color: #00d4ff;
-            font-size: 3.8rem;
+            font-size: 4rem;
             margin: 0 0 10px 0;
-            letter-spacing: -1px;
-            text-shadow: 0 0 40px rgba(0, 212, 255, 0.4);
+            letter-spacing: -2px;
+            text-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
         }
 
         p {
-            color: #94a3b8;
-            font-size: 1.15rem;
-            margin-bottom: 40px;
+            color: #64748b;
+            font-size: 1.2rem;
+            margin-bottom: 45px;
             font-weight: 300;
         }
 
@@ -84,34 +84,32 @@ layout: null
             color: #00d4ff;
             text-decoration: none;
             font-weight: 600;
-            padding: 16px 40px;
-            border: 1.5px solid rgba(0, 212, 255, 0.4);
-            border-radius: 60px;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            background: rgba(0, 212, 255, 0.02);
+            padding: 18px 50px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 100px;
+            transition: all 0.5s cubic-bezier(0.15, 0.83, 0.66, 1);
+            background: rgba(0, 212, 255, 0.01);
         }
 
         .link-btn:hover {
             background: #00d4ff;
-            color: #050505;
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.6);
-            transform: translateY(-4px);
+            color: #020205;
+            box-shadow: 0 0 50px rgba(0, 212, 255, 0.5);
+            transform: translateY(-5px);
         }
 
         .id-badge {
-            margin-top: 55px;
-            font-size: 0.75rem;
-            color: #475569;
-            letter-spacing: 3px;
+            margin-top: 65px;
+            font-size: 0.8rem;
+            color: #334155;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            font-weight: 600;
-            opacity: 0.8;
+            font-weight: 700;
         }
     </style>
 </head>
 <body>
-    <div class="background-animate"></div>
-    <div class="grain"></div>
+    <div class="bg-wrapper"></div>
     <div class="glass-card">
         <h1>Timiitz</h1>
         <p>Official Gateway-Domain for Technical Verification</p>
