@@ -116,7 +116,7 @@ layout: null
     
     <div class="glass-card">
         <h1>Timiitz</h1>
-        <p>Official Gateway-Domain for Technical Verification</p>
+        <p>Official Gateway-Domain for Technical Verification (02/2026)</p>
         <a href="https://github.com/TimiitzGit" class="link-btn">View GitHub Profile</a>
         <div class="id-badge">Namespace Anchor: timiitzgit.github.io</div>
     </div>
