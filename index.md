@@ -7,41 +7,38 @@ layout: null
     <title>Timiitz / TimiitzGit</title>
     <style>
         * { box-sizing: border-box; }
+        
         html, body {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
             overflow: hidden;
-            background-color: #050505;
             display: flex;
             justify-content: center;
             align-items: center;
             font-family: 'Segoe UI', Roboto, sans-serif;
+            background-color: #0a1128 !important; 
         }
 
         .bg-wrapper {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             z-index: -1;
-            /* Kontrastreichere Farben für sichtbare Animation */
             background: linear-gradient(-45deg, 
-                #020205, #08081a, #0f172a, #1e293b, 
-                #1e3a8a, #1e293b, #0f172a, #08081a, #020205);
+                #050c1f, #0f172a, #1e3a8a, #2563eb, 
+                #1e40af, #0f172a, #050c1f);
             background-size: 400% 400%;
-            animation: ultraGradient 20s ease-in-out infinite;
+            animation: ultraGradient 15s ease infinite !important;
         }
 
         .bg-wrapper::after {
             content: "";
             position: absolute;
             inset: 0;
-            opacity: 0.08;
+            opacity: 0.1; /* Höhere Opazität für sichtbaren Effekt */
             pointer-events: none;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
         }
 
         @keyframes ultraGradient {
@@ -51,31 +48,30 @@ layout: null
         }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.015);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 35px;
-            padding: 70px;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(35px);
+            -webkit-backdrop-filter: blur(35px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 40px;
+            padding: 60px;
             text-align: center;
-            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
-            max-width: 600px;
-            width: 90%;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.7);
+            max-width: 580px;
+            width: 85%;
             z-index: 10;
         }
 
         h1 {
             color: #00d4ff;
-            font-size: 4rem;
+            font-size: 3.8rem;
             margin: 0 0 10px 0;
-            letter-spacing: -2px;
-            text-shadow: 0 0 40px rgba(0, 212, 255, 0.4);
+            text-shadow: 0 0 35px rgba(0, 212, 255, 0.5);
         }
 
         p {
             color: #94a3b8;
-            font-size: 1.2rem;
-            margin-bottom: 45px;
+            font-size: 1.15rem;
+            margin-bottom: 40px;
             font-weight: 300;
         }
 
@@ -84,35 +80,40 @@ layout: null
             color: #00d4ff;
             text-decoration: none;
             font-weight: 600;
-            padding: 18px 45px;
-            border: 1.5px solid rgba(0, 212, 255, 0.4);
+            padding: 16px 45px;
+            border: 2px solid #00d4ff;
             border-radius: 100px;
-            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-            background: rgba(0, 212, 255, 0.02);
+            transition: 0.4s;
+            background: rgba(0, 212, 255, 0.05);
         }
 
         .link-btn:hover {
             background: #00d4ff;
-            color: #020205;
+            color: #050c1f;
             box-shadow: 0 0 40px rgba(0, 212, 255, 0.6);
-            transform: translateY(-5px) scale(1.02);
+            transform: translateY(-5px);
         }
 
         .id-badge {
-            margin-top: 60px;
+            margin-top: 55px;
             font-size: 0.8rem;
             color: #475569;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            font-weight: 700;
+            font-weight: bold;
         }
 
-        .hidden-doctype { display: none; }
+        #hide-me {
+            display: none !important;
+            visibility: hidden;
+        }
     </style>
 </head>
 <body>
-    <div class="hidden-doctype"><!DOCTYPE html></div>
+    <div id="hide-me"><!DOCTYPE html></div>
+    
     <div class="bg-wrapper"></div>
+    
     <div class="glass-card">
         <h1>Timiitz</h1>
         <p>Official Gateway-Domain for Technical Verification</p>
