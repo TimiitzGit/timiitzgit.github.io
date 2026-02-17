@@ -3,11 +3,17 @@ layout: default
 ---
 
 <style>
-  /* Animierter Hintergrund über die ganze Seite */
-  body {
-    background: linear-gradient(-45deg, #0f0f13, #1a1a2e, #072740, #121212) !important;
+  header {
+    background: transparent !important;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: linear-gradient(-45deg, #050505, #1a1a2e, #16213e, #0f3460) !important;
     background-size: 400% 400% !important;
-    animation: gradient 12s ease infinite !important;
+    animation: gradient 15s ease infinite !important;
     color: #e0e0e0 !important;
   }
 
@@ -17,41 +23,46 @@ layout: default
     100% { background-position: 0% 50%; }
   }
 
-  /* Gläserner Effekt für den Inhaltsbereich */
   #container {
     background: rgba(255, 255, 255, 0.05) !important;
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(77, 171, 247, 0.2);
-    border-radius: 15px;
-    padding: 50px !important;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-    max-width: 700px;
-    margin: 60px auto !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 60px !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+    max-width: 800px;
+    margin: 100px auto !important;
   }
 
-  /* Überschrift & Link-Styling */
-  h1 { color: #4dabf7 !important; text-shadow: 0 0 15px rgba(77, 171, 247, 0.5); }
-  
+  h1 { 
+    color: #00d4ff !important; 
+    font-size: 3em !important;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+  }
+
   a {
-    color: #4dabf7 !important;
-    font-weight: bold;
+    color: #00d4ff !important;
     text-decoration: none !important;
+    font-weight: bold;
     border-bottom: 2px solid transparent;
-    transition: 0.4s;
+    transition: all 0.3s ease;
   }
 
   a:hover {
-    color: #fff !important;
-    border-bottom: 2px solid #fff;
-    text-shadow: 0 0 10px #4dabf7;
+    color: #ffffff !important;
+    border-bottom: 2px solid #00d4ff;
+    text-shadow: 0 0 10px #00d4ff;
   }
 
   hr {
     border: none;
     height: 1px;
-    background: linear-gradient(to right, transparent, #4dabf7, transparent);
+    background: linear-gradient(to right, transparent, #00d4ff, transparent);
     margin: 40px 0;
   }
+
+  footer { display: none !important; }
 </style>
 
 # Timiitz
@@ -64,4 +75,4 @@ Official Gateway-Domain for Technical Verification
 
 ---
 
-> **Namespace Identity:** `timiitz.github.io`
+> **Namespace Identity:** `timiitzgit.github.io`
